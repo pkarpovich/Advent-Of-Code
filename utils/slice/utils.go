@@ -1,11 +1,9 @@
 package slice
 
-func Contains(slice []int, number int) bool {
+func Sum(slice []int) (result int) {
 	for _, value := range slice {
-		if value == number {
-			return true
-		}
+		result += value
 	}
 
-	return false
+	return result
 }
