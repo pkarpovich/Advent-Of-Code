@@ -36,3 +36,18 @@ func GetIntSliceFromFile(path string) (result []int) {
 
 	return result
 }
+
+func GetStringSliceFromFile(path string) (result []string) {
+	file := getFileHandler(path)
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+
+		result = append(result, line)
+	}
+
+	return result
+}
